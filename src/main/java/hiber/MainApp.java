@@ -49,6 +49,13 @@ public class MainApp {
          System.out.println("Car Series = "+user.getCar().getSeries());
 
       }
+      List<Car> cars = carService.listCars();
+      for (Car car : cars) {
+         System.out.println("series = " + car.getSeries());
+         System.out.println("model = " + car.getModel());
+         System.out.println("user = " + car.getUser());
+      }
+
       User user = userService.userBySeries(2);
       System.out.println(user.toString());
 

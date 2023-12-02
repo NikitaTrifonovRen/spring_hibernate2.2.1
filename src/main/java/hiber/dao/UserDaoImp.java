@@ -43,7 +43,6 @@ public class UserDaoImp implements UserDao {
       TypedQuery<Integer> query=sessionFactory.getCurrentSession().createQuery("select series from Car where model like :model");
       String m = model;
       List<Integer> seriesList = query.setParameter("model",m).getResultList();
-      System.out.println(seriesList.toString());
       List<User> usersModel = new ArrayList<>();
       for (Integer integer: seriesList){
          usersModel.add((User) sessionFactory.getCurrentSession().createQuery("from User where carSeries like :series").setParameter("series",integer).getSingleResult());
